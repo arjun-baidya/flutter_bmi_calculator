@@ -46,6 +46,12 @@ class _HomePageState extends State<HomePage> {
                     style: const TextStyle(fontSize: 42, fontWeight: FontWeight.w300, color: Colors.yellow),
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
+                      labelText: 'cm',
+                      labelStyle: const TextStyle(
+                        color: Colors.yellow,
+                        fontSize: 42,
+                        fontWeight: FontWeight.w300,
+                      ),
                       hintText: "Height",
                       border: InputBorder.none,
                       hintStyle: TextStyle(
@@ -67,7 +73,13 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.yellow),
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      hintText: "Width",
+                      labelText: "kg",
+                      labelStyle: const TextStyle(
+                        color: Colors.yellow,
+                        fontSize: 42,
+                        fontWeight: FontWeight.w300,
+                      ),
+                      hintText: "Weight",
                       border: InputBorder.none,
                       hintStyle: TextStyle(
                         fontSize: 42,
@@ -104,7 +116,8 @@ class _HomePageState extends State<HomePage> {
                   double _h = double.parse(_heightController.text);
                   double _w = double.parse(_widthController.text);
                   setState(() {
-                    _bmiResult = _w / (_h * _h);
+                    // _bmiResult = _w / (_h * _h);
+                    _bmiResult = (_w/_h/_h)*10000;
                     // _textResult = _bmiResult.toStringAsFixed(2);
                     if (_bmiResult > 25) {
                       _textResult = "You are Overweight";
